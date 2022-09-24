@@ -15,11 +15,14 @@ build {
     }
   }
   sources = [
-    "source.vsphere-iso.base",
+#    "source.vsphere-iso.base",
     "amazon-ebs.base"
   ]
   provisioner "shell" {
     script = "post-script.sh"
+  }
+  provisioner "ansible-local" {
+    playbook_file = "playbook.yaml"
   }
 
 }
