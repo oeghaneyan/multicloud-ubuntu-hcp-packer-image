@@ -1,0 +1,3 @@
+[submodule "roles/ansible-role-hardening.git"]
+	path = roles/ansible-role-hardening.git
+	url = https://github.com/konstruktoid/ansible-role-hardening.git
