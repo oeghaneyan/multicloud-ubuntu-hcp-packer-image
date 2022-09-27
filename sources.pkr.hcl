@@ -22,7 +22,7 @@ source "amazon-ebs" "base" {
 
   instance_type = "t2.micro"
   ssh_username = "ubuntu"
-  ami_name = "${var.prefix}-${local.timestamp}"
+  ami_name = "ubuntu-${var.prefix}-${local.timestamp}"
   tags = {
     owner = var.owner
     delete_date = "2022-04-08"
@@ -72,7 +72,7 @@ source "vsphere-iso" "base" {
   username       = "${var.vsphere-user}"
   vcenter_server = "${var.vsphere-server}"
   cluster        = "${var.vsphere-cluster}"
-  vm_name        = "${var.vm-name}"
+  vm_name        = "ubuntu-${var.prefix}-${local.timestamp}"
   folder         = "${var.vm-folder}"
 }
 

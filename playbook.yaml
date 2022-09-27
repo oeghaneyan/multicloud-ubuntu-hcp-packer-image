@@ -6,9 +6,14 @@
     ansible_python_interpreter: /usr/bin/python3
     ansible_user_password: 
   tasks:
-    - name: Run Hardening Role
+    - name: Run Hardening Role for Ubuntu Systems
       include_role:
         name: ansible-role-hardening
+      tags: 
+        - CIS-UBUNTU2004-5.5.1.4
+        - ubuntu
+        - fstab
+        - users
       vars:
         block_blacklisted: true
         sshd_admin_net:

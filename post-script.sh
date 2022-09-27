@@ -13,3 +13,4 @@
 #git clone https://github.com/omeeomi/multicloud-ubuntu-hcp-packer-image.git
 
 #ls
+echo "post-script.sh is an empty placeholder script - No action taken."

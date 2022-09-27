@@ -51,10 +51,10 @@ variable "vm-mem-size" {
   default = "1024"
 }
 
-variable "vm-name" {
-  type    = string
-  default = "ubuntu-2004-template"
-}
+#variable "vm-name" {
+#  type    = string
+#  default = "ubuntu-2004-template"
+#}
 
 variable "vm-folder" {
   type    = string

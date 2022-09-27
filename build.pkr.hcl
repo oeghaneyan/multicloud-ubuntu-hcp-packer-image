@@ -25,9 +25,7 @@ build {
     user = "ubuntu"
     extra_arguments = [
 			"--extra-vars",
-			"ansible_user_password=${var.ansible_user_password}",
-      "--tags",
-      "CIS-UBUNTU2004-5.5.1.4,ubuntu,fstab,users"
+			"ansible_user_password=${var.ansible_user_password}"
 		]
   }
 }

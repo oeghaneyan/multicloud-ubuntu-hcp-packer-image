@@ -2,3 +2,6 @@
 [submodule "roles/ansible-role-hardening"]
 	path = roles/ansible-role-hardening
 	url = https://github.com/konstruktoid/ansible-role-hardening.git
+[submodule "roles/CIS-Ubuntu-20.04-Ansible"]
+	path = roles/CIS-Ubuntu-20.04-Ansible
+	url = https://github.com/alivx/CIS-Ubuntu-20.04-Ansible.git
