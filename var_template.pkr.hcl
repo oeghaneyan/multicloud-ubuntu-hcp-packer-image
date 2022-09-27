@@ -56,6 +56,11 @@ variable "vm-name" {
   default = "ubuntu-2004-template"
 }
 
+variable "vm-folder" {
+  type    = string
+  default = ""
+}
+
 variable "vsphere-datacenter" {
   type    = string
   default = ""
@@ -88,11 +93,6 @@ variable "vsphere-user" {
 }
 
 variable "vsphere-cluster" {
-  type    = string
-  default = ""
-}
-
-variable "vsphere-folder" {
   type    = string
   default = ""
 }
