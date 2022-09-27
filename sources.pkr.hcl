@@ -71,8 +71,9 @@ source "vsphere-iso" "base" {
   }
   username       = "${var.vsphere-user}"
   vcenter_server = "${var.vsphere-server}"
-  host           = "${var.vsphere-host}"
+  cluster        = "${var.vsphere-cluster}"
   vm_name        = "${var.vm-name}"
+  folder         = "${var.vm-folder}"
 }
 
 

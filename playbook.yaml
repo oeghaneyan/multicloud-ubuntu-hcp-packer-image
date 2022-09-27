@@ -1,16 +1,14 @@
 ---
-- hosts: 127.0.0.1
+- hosts: default
   become: true
   remote_user: ubuntu
-  become_method: sudo
-  connection: local
-  vars:  
-    ansible_become_pass: ubuntu
-  any_errors_fatal: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_user_password: 
   tasks:
     - name: Run Hardening Role
       include_role:
-        name: konstruktoid.hardening
+        name: ansible-role-hardening
       vars:
         block_blacklisted: true
         sshd_admin_net:

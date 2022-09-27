@@ -4,7 +4,7 @@
 
 variable "ansible_user_password" {
     type = string
-    default = "ansible"
+    default = "ubuntu"
 }
 
 #######################################################################
@@ -87,7 +87,12 @@ variable "vsphere-user" {
   default = ""
 }
 
-variable "vsphere-host" {
+variable "vsphere-cluster" {
+  type    = string
+  default = ""
+}
+
+variable "vsphere-folder" {
   type    = string
   default = ""
 }
