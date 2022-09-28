@@ -25,7 +25,9 @@ build {
     user = "ubuntu"
     extra_arguments = [
 			"--extra-vars",
-			"ansible_user_password=${var.ansible_user_password}"
+			"ansible_user_password=${var.ansible_user_password}",
+      "--tags",
+      "level_1_server"
 		]
   }
 }

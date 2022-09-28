@@ -25,12 +25,11 @@ source "amazon-ebs" "base" {
   ami_name = "ubuntu-${var.prefix}-${local.timestamp}"
   tags = {
     owner = var.owner
-    delete_date = "2022-04-08"
     application = "base-build"
     golden    = "false"
-    security_hardened = "true"
+    security_hardened = "false"
     cis_benchmarked = "true"
-    github_action = "true"
+
   }
 }
 
