@@ -20,14 +20,14 @@ build {
   provisioner "shell" {
     script = "post-script.sh"
   }
-#  provisioner "ansible" {
-#    playbook_file = "./playbook.yaml"
-#    user = "ubuntu"
-#    extra_arguments = [
-#			"--extra-vars",
-#			"ansible_user_password=${var.ansible_user_password}",
-#      "--tags",
-#      "level_1_server"
-#		]
-#  }
+  provisioner "ansible" {
+    playbook_file = "./playbook.yaml"
+    user = "ubuntu"
+    extra_arguments = [
+			"--extra-vars",
+			"ansible_user_password=${var.ansible_user_password}",
+      "--tags",
+      "level_1_server"
+		]
+  }
 }
