@@ -11,9 +11,9 @@ autoinstall:
       ethernets:
         ens192:
           dhcp4: true
-          gateway4: 192.168.1.1
+          gateway4: 10.11.1.1
           nameservers:
-            addresses: [192.168.1.150]
+            addresses: [10.11.1.150]
   early-commands:
     # Stop ssh for packer
     - sudo systemctl stop ssh
