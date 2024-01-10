@@ -29,25 +29,25 @@ variable "owner" {
 # AZURE VARIABLES
 variable "client_id" {
   type    = string
-  default = "${env("CLIENT_ID")}"
+  default = "${env("AZURE_CLIENT_ID")}"
   sensitive = true
 }
 
 variable "client_secret" {
   type    = string
-  default = "${env("CLIENT_SECRET")}"
+  default = "${env("AZURE_CLIENT_SECRET")}"
   sensitive = true
 }
 
 variable "subscription_id" {
   type    = string
-  default = "${env("SUBSCRIPTION_ID")}"
+  default = "${env("AZURE_SUBSCRIPTION_ID")}"
   sensitive = true
 }
 
 variable "tenant_id" {
   type    = string
-  default = "${env("TENANT_ID")}"
+  default = "${env("AZURE_TENANT_ID")}"
   sensitive = true
 }
 

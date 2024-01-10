@@ -6,27 +6,27 @@ build {
     bucket_name = "ore-ubuntu-image"
     description = "Bucket for ubuntu Images in Azure, AWS, and On-Prem."
     bucket_labels = {
-      "ubuntu" = "20.04-2022",
+      "ubuntu" = "server",
       "security_hardened" = "false",
       "cis_benchmarked" = "false"
     }
   }
   sources = [
-    "source.azure-arm.base-ubuntu2004",
-    "source.amazon-ebs.base-ubuntu2004",    
-    "source.vsphere-iso.base-ubuntu2004"
+    "source.azure-arm.base-ubuntu",
+    "source.amazon-ebs.base-ubuntu",    
+    "source.vsphere-iso.base-ubuntu"
   ]
   provisioner "shell" {
     script = "post-script.sh"
   }
-  provisioner "ansible" {
-    playbook_file = "./playbook.yaml"
-    user = "ubuntu"
-    extra_arguments = [
-			"--extra-vars",
-			"ansible_user_password=${var.ansible_user_password}",
-      "--tags",
-      "level_1_server"
-		]
-  }
+  #provisioner "ansible" {
+  #  playbook_file = "./playbook.yaml"
+  #  user = "ubuntu"
+  #  extra_arguments = [
+	#		"--extra-vars",
+	#		"ansible_user_password=${var.ansible_user_password}",
+  #    "--tags",
+  #    "level_1_server"
+	#	]
+  #}
 }

@@ -4,7 +4,7 @@ locals {
 }
 
 # AZURE SOURCE
-source "azure-arm" "base-ubuntu2004" {
+source "azure-arm" "base-ubuntu" {
   azure_tags = {
     dept = "Solution Engineering"
     task = "GitHub Packer Demo"
@@ -16,15 +16,15 @@ source "azure-arm" "base-ubuntu2004" {
   build_resource_group_name         = "${var.azure_resource_group_name}"
   image_offer                       = "UbuntuServer"
   image_publisher                   = "Canonical"
-  image_sku                         = "20.04-LTS"
-  managed_image_name                = "ubuntu-2004-${var.prefix}-${local.timestamp}"
+  image_sku                         = "18_04-lts-gen2" #20.04 Not Available in East US
+  managed_image_name                = "ubuntu-1804-${var.prefix}-${local.timestamp}"
   managed_image_resource_group_name = "${var.azure_resource_group_name}"
   os_type                           = "Linux"
   vm_size                           = "${var.azure_vm_size}"
 }
 
 # AWS SOURCE
-source "amazon-ebs" "base-ubuntu2004" {
+source "amazon-ebs" "base-ubuntu" {
   region = var.aws_region
 
   source_ami_filter {
@@ -51,7 +51,7 @@ source "amazon-ebs" "base-ubuntu2004" {
 }
 
 # VSPHERE SOURCE
-source "vsphere-iso" "base-ubuntu2004" {
+source "vsphere-iso" "base-ubuntu" {
   CPUs                 = 1
   RAM                  = 1024
   RAM_reserve_all      = false
