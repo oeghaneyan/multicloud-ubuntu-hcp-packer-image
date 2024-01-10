@@ -13,8 +13,7 @@ build {
   }
   sources = [
     "source.azure-arm.base-ubuntu",
-    "source.amazon-ebs.base-ubuntu",    
-    "source.vsphere-iso.base-ubuntu"
+    "source.amazon-ebs.base-ubuntu"
   ]
   provisioner "shell" {
     script = "post-script.sh"
