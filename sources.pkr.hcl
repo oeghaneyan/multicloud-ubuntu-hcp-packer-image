@@ -1,13 +1,30 @@
-#######################################################################
-####                          AWS SOURCE                           ####
-#######################################################################
-
-# Time stamps for image file placed into Cloud
+# LOCAL SOURCE
 locals {
 	timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 }
 
-source "amazon-ebs" "base" {
+# AZURE SOURCE
+source "azure-arm" "base-ubuntu2004" {
+  azure_tags = {
+    dept = "Solution Engineering"
+    task = "GitHub Packer Demo"
+  }
+  client_id                         = "${var.client_id}"
+  client_secret                     = "${var.client_secret}"
+  subscription_id                   = "${var.subscription_id}"
+  tenant_id                         = "${var.tenant_id}"
+  build_resource_group_name         = "${var.azure_resource_group_name}"
+  image_offer                       = "UbuntuServer"
+  image_publisher                   = "Canonical"
+  image_sku                         = "20.04-LTS"
+  managed_image_name                = "ubuntu-2004-${var.prefix}-${local.timestamp}"
+  managed_image_resource_group_name = "${var.azure_resource_group_name}"
+  os_type                           = "Linux"
+  vm_size                           = "${var.azure_vm_size}"
+}
+
+# AWS SOURCE
+source "amazon-ebs" "base-ubuntu2004" {
   region = var.aws_region
 
   source_ami_filter {
@@ -33,11 +50,8 @@ source "amazon-ebs" "base" {
   }
 }
 
-#######################################################################
-####                        VSPHERE SOURCE                         ####
-#######################################################################
-
-source "vsphere-iso" "base" {
+# VSPHERE SOURCE
+source "vsphere-iso" "base-ubuntu2004" {
   CPUs                 = 1
   RAM                  = 1024
   RAM_reserve_all      = false

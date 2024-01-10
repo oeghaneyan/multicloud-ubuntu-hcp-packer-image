@@ -1,12 +1,10 @@
 
-#######################################################################
-####                      BUILD PARAMATERS                         ####
-#######################################################################
+# BUILD PARAMATERS
 
 build {
   hcp_packer_registry {
     bucket_name = "ore-ubuntu-image"
-    description = "Bucket for ubuntu Images on prem and in AWS"
+    description = "Bucket for ubuntu Images in Azure, AWS, and On-Prem."
     bucket_labels = {
       "ubuntu" = "20.04-2022",
       "security_hardened" = "false",
@@ -14,8 +12,9 @@ build {
     }
   }
   sources = [
-    "source.vsphere-iso.base",
-    "amazon-ebs.base"
+    "source.azure-arm.base-ubuntu2004",
+    "source.amazon-ebs.base-ubuntu2004",    
+    "source.vsphere-iso.base-ubuntu2004"
   ]
   provisioner "shell" {
     script = "post-script.sh"

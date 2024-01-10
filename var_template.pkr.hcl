@@ -1,16 +1,16 @@
-#######################################################################
-####                       IMAGE VARIABLES                         ####
-#######################################################################
-
+# IMAGE VARIABLES
 variable "ansible_user_password" {
     type = string
     default = "ubuntu"
 }
 
-#######################################################################
-####                         AWS VARIABLES                         ####
-#######################################################################
+variable "user-password" {
+  type    = string
+  default = "${env("SSH_PASS")}"
+  sensitive = true
+}
 
+# AWS VARIABLES 
 variable "prefix" {
 	type = string
 	default = ""
@@ -26,11 +26,42 @@ variable "owner" {
     default = ""
 }
 
-#######################################################################
-####                      VSPHERE VARIABLES                        ####
-#######################################################################
+# AZURE VARIABLES
+variable "client_id" {
+  type    = string
+  default = "${env("CLIENT_ID")}"
+  sensitive = true
+}
 
+variable "client_secret" {
+  type    = string
+  default = "${env("CLIENT_SECRET")}"
+  sensitive = true
+}
 
+variable "subscription_id" {
+  type    = string
+  default = "${env("SUBSCRIPTION_ID")}"
+  sensitive = true
+}
+
+variable "tenant_id" {
+  type    = string
+  default = "${env("TENANT_ID")}"
+  sensitive = true
+}
+
+variable "azure_resource_group_name" {
+  type    = string
+  default = ""
+}
+
+variable "azure_vm_size" {
+  type    = string
+  default = ""
+}
+
+# VSPHERE VARIABLES
 variable "iso_url" {
   type    = string
   default = ""
